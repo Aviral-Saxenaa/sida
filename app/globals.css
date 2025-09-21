@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Why Choose Us Animation */
+@keyframes slideInFromLeft {
+  0% { 
+    transform: translateX(-150%); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: translateX(-150%); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  0% { 
+    transform: translateX(150%); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: translateX(150%); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+.animate-cards .card-1 { 
+  animation: slideInFromLeft 3s ease-out forwards; 
+  animation-delay: 0.5s;
+}
+
+.animate-cards .card-2 { 
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-cards .card-3 { 
+  animation: slideInFromRight 3s ease-out forwards; 
+  animation-delay: 1.5s;
+}
