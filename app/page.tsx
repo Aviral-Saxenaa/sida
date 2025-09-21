@@ -58,8 +58,8 @@ const ChevronRightIcon = () => (
   </svg>
 )
 
-const ChevronDownIcon = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+const ChevronDownIcon = ({ className = "" }: { className?: string }) => (
+  <svg className={`w-5 h-5 ${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
   </svg>
 )
@@ -68,7 +68,7 @@ const ChevronDownIcon = () => (
 const Button = ({ children, className = "", variant = "default", onClick, ...props }: any) => {
   const baseStyles = "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
   
-  const variants = {
+  const variants: { [key: string]: string } = {
     default: "bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2",
     ghost: "hover:bg-accent hover:text-accent-foreground",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2"
@@ -76,7 +76,7 @@ const Button = ({ children, className = "", variant = "default", onClick, ...pro
   
   return (
     <button 
-      className={`${baseStyles} ${variants[variant]} ${className}`}
+      className={`${baseStyles} ${variants[variant] || variants.default} ${className}`}
       onClick={onClick}
       {...props}
     >
